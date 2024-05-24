@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect } from "react";
+import { GlobalContext } from "../../context/GlobalState";
 
 const ListNews = () => {
+  const { news, getNews } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getNews();
+  }, []);
+
+  return <div>{news.map(news=>{
     return (
-        <div>
-            <h1>ListNews</h1>
+        <div key={news.title}>
+            <p>{news.title}</p>
+            <p>{news.abstract}</p>
+            <p>{news.url}</p>
         </div>
-    );
+    )
+  })}</div>;
 };
 
 export default ListNews;

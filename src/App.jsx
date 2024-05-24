@@ -6,6 +6,7 @@ import ListNews from "./components/ListNews/ListNews";
 import Form from "./components/Form/Form";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
+import { GlobalProvider } from "./context/GlobalState";
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/header" element={<Header />} />
-          <Route path="/listNews" element={<ListNews />} />
+            <Route path="/listNews" element={<GlobalProvider><ListNews /></GlobalProvider>} />
           <Route path="/form" element={<Form />} />
-          <Route path="/footer" element={<Footer />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
