@@ -11,10 +11,11 @@ const ListNews = () => {
 
   return <div>{news.map(news=>{
     return (
-        <div key={news.title}>
+        <div  key={news.title}>
             <p>{news.title}</p>
             <p>{news.abstract}</p>
             <p>{news.url}</p>
+            <hr />
         </div>
     )
   })}</div>;
